@@ -6,20 +6,24 @@
     --color-surface: #2a2a2a;
     --color-text: #f7f7f3;
     --color-text-muted: #91918f;
-  
+
     /* Ocre */
     --color-ochre-bg: #2a1c05;
     --color-ochre: #f2c849;
-  
+
     /* Violeta */
     --color-violet-bg: #241420;
     --color-violet: #debdff;
-  
+
     /* Arcilla */
     --color-clay-bg: #2e130f;
     --color-clay: #fe5f2f;
-  
+
     /* Oliva */
     --color-olive-bg: #1c1f16;
     --color-olive: #aaa676;
-  }
+
+    /* Typography */
+    --font-display: 'Instrument Serif', Georgia, serif;
+    --font-sans: 'Inter Variable', Arial, Helvetica, sans-serif;
+}
