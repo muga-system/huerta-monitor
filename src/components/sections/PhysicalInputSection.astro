@@ -1,0 +1,174 @@
+---
+// src/components/sections/PhysicalInputSection.astro
+---
+
+<section class="physical-input">
+    <div class="physical-input__header">
+        <p>V1 / Entrada física</p>
+        <p>Suelo → Sensor → ESP32</p>
+    </div>
+
+    <div class="physical-input__content">
+        <div class="physical-input__intro">
+            <h2>La tierra es el origen del dato.</h2>
+
+            <p>
+                Antes de interpretar porcentajes o estados, necesitamos capturar
+                una condición física real del suelo.
+            </p>
+        </div>
+
+        <ol class="physical-input__steps">
+            <li>
+                <span>01</span>
+
+                <div>
+                    <p>Condición física</p>
+                    <p>Humedad presente en la tierra.</p>
+                </div>
+            </li>
+
+            <li>
+                <span>02</span>
+
+                <div>
+                    <p>Captura</p>
+                    <p>Sensor capacitivo de humedad.</p>
+                </div>
+            </li>
+
+            <li>
+                <span>03</span>
+
+                <div>
+                    <p>Lectura</p>
+                    <p>Entrada analógica del ESP32.</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<style>
+    .physical-input {
+        min-height: calc(100svh - (var(--page-gutter) * 2));
+        margin: var(--page-gutter);
+        padding: 1.25rem;
+
+        overflow: clip;
+        border-radius: var(--section-radius);
+
+        background: var(--color-ochre-bg);
+        color: var(--color-ochre);
+    }
+
+    .physical-input__header {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .physical-input__header p {
+        margin: 0;
+
+        font-size: 0.6875rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .physical-input__content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr);
+        align-items: end;
+        gap: 4rem;
+
+        margin-top: 6rem;
+    }
+
+    .physical-input__intro h2 {
+        max-width: 9ch;
+        margin: 0;
+
+        font-family: var(--font-display);
+        font-size: clamp(4rem, 8vw, 8rem);
+        font-weight: 400;
+        line-height: 0.88;
+        letter-spacing: -0.04em;
+    }
+
+    .physical-input__intro > p {
+        max-width: 28rem;
+        margin: 2rem 0 0;
+
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .physical-input__steps {
+        margin: 0;
+        padding: 0;
+
+        border-top: 1px dashed currentColor;
+
+        list-style: none;
+    }
+
+    .physical-input__steps li {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        gap: 1rem;
+
+        padding: 1.25rem 0;
+
+        border-bottom: 1px dashed currentColor;
+    }
+
+    .physical-input__steps span {
+        font-size: 0.6875rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+    }
+
+    .physical-input__steps div p:first-child {
+  margin: 0;
+
+  font-size: 1.125rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.physical-input__steps div p:last-child {
+  max-width: 24rem;
+  margin: 0.75rem 0 0;
+
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 48rem) {
+  .physical-input {
+    padding: 1rem;
+  }
+
+  .physical-input__header {
+    gap: 1rem;
+  }
+
+  .physical-input__content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    margin-top: 5rem;
+  }
+
+  .physical-input__intro h2 {
+    max-width: 8ch;
+    font-size: clamp(3.75rem, 17vw, 6rem);
+  }
+
+  .physical-input__steps li {
+    grid-template-columns: 2.5rem 1fr;
+  }
+}
+</style>
