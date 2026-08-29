@@ -26,4 +26,8 @@
     /* Typography */
     --font-display: 'Instrument Serif', Georgia, serif;
     --font-sans: 'Inter Variable', Arial, Helvetica, sans-serif;
+
+    /* Layout */
+    --page-gutter: 0.875rem;
+    --section-radius: 1.75rem;
 }

@@ -14,6 +14,10 @@
 html {
     background: var(--color-base);
     color: var(--color-text);
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-text-muted) var(--color-base);
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -21,3 +25,20 @@ body {
     min-height: 100vh;
     font-family: var(--font-sans);
 }
+
+::-webkit-scrollbar {
+    width: 0.625rem;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-base);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-text-muted);
+    border: 0.1875rem solid var(--color-base);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text);
+  }
