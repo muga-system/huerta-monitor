@@ -1,0 +1,116 @@
+---
+// src/components/sections/SystemIntroSection.astro
+---
+
+<section class="system-intro">
+    <div class="system-intro__meta">
+        <p>Sistema / V1</p>
+        <p>Humedad del suelo</p>
+    </div>
+
+    <div class="system-intro__content">
+        <h1>El sistema empieza en la tierra.</h1>
+
+        <div class="system-intro__description">
+            <p>
+                La primera versión tiene una sola responsabilidad: leer la
+                humedad del suelo de forma estable y convertir esa señal en un
+                dato que podamos interpretar.
+            </p>
+
+            <p>
+                Antes de Wi-Fi, historial o automatización, necesitamos
+                comprobar que el sensor y el ESP32 pueden medir correctamente
+                una condición física real.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .system-intro {
+        display: grid;
+        grid-template-rows: auto 1fr;
+
+        min-height: calc(100svh - var(--header-height));
+        padding: 1.25rem;
+    }
+
+    .system-intro__meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .system-intro__meta p {
+        margin: 0;
+
+        font-size: 0.6875rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .system-intro__content {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+        align-items: end;
+        gap: 4rem;
+    }
+
+    .system-intro h1 {
+        max-width: 8ch;
+        margin: 0;
+
+        font-family: var(--font-display);
+        font-size: clamp(4rem, 9vw, 9rem);
+        font-weight: 400;
+        line-height: 0.88;
+        letter-spacing: -0.04em;
+    }
+
+    .system-intro__description {
+        padding-top: 1.25rem;
+
+        border-top: 1px dashed rgb(247 247 243 / 30%);
+    }
+
+    .system-intro__description p {
+        max-width: 32rem;
+        margin: 0;
+
+        color: var(--color-text-muted);
+
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .system-intro__description p + p {
+        margin-top: 1.5rem;
+    }
+
+    @media (max-width: 48rem) {
+        .system-intro {
+            padding: 1rem;
+        }
+
+        .system-intro__meta {
+            gap: 1rem;
+        }
+
+        .system-intro__content {
+            grid-template-columns: 1fr;
+            align-content: end;
+            gap: 3rem;
+        }
+
+        .system-intro h1 {
+            max-width: 7ch;
+            font-size: clamp(3.75rem, 17vw, 6rem);
+        }
+
+        .system-intro__description {
+            width: 100%;
+        }
+    }
+</style>
