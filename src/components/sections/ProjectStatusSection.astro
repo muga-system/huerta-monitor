@@ -2,7 +2,7 @@
 // src/components/sections/ProjectStatusSection.astro
 ---
 
-<section class="project-status">
+<section class="section-surface project-status">
     <div class="project-status__header">
         <p>Estado actual / V1</p>
         <p>Hardware pendiente</p>
@@ -30,17 +30,6 @@
 
 <style>
     .project-status {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        min-height: calc(100svh - (var(--page-gutter) * 2));
-        margin: var(--page-gutter);
-        padding: 1.25rem;
-
-        overflow: clip;
-        border-radius: var(--section-radius);
-
         background: var(--color-clay-bg);
         color: var(--color-clay);
     }
@@ -106,27 +95,23 @@
     }
 
     @media (max-width: 48rem) {
-  .project-status {
-    padding: 1rem;
-  }
+        .project-status__header {
+            gap: 1rem;
+        }
 
-  .project-status__header {
-    gap: 1rem;
-  }
+        .project-status__content {
+            grid-template-columns: 1fr;
+            align-content: end;
+            gap: 3rem;
+        }
 
-  .project-status__content {
-    grid-template-columns: 1fr;
-    align-content: end;
-    gap: 3rem;
-  }
+        .project-status__state h2 {
+            max-width: 8ch;
+            font-size: clamp(3.75rem, 17vw, 6rem);
+        }
 
-  .project-status__state h2 {
-    max-width: 8ch;
-    font-size: clamp(3.75rem, 17vw, 6rem);
-  }
-
-  .project-status__detail {
-    width: 100%;
-  }
-}
+        .project-status__detail {
+            width: 100%;
+        }
+    }
 </style>

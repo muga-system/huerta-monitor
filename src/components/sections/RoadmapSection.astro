@@ -2,7 +2,7 @@
 // src/components/sections/RoadmapSection.astro
 ---
 
-<section class="roadmap">
+<section class="section-surface roadmap">
     <div class="roadmap__header">
         <p>Evolución / Sistema</p>
         <p>Después de la V1</p>
@@ -59,17 +59,6 @@
 
 <style>
     .roadmap {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        min-height: calc(100svh - (var(--page-gutter) * 2));
-        margin: var(--page-gutter);
-        padding: 1.25rem;
-
-        overflow: clip;
-        border-radius: var(--section-radius);
-
         background: var(--color-olive-bg);
         color: var(--color-olive);
     }
@@ -94,6 +83,10 @@
         grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr);
         align-items: end;
         gap: 4rem;
+    }
+    
+    .roadmap__intro {
+        padding-top: 2rem;
     }
 
     .roadmap__intro h2 {
@@ -149,31 +142,27 @@
     }
 
     @media (max-width: 48rem) {
-  .roadmap {
-    padding: 1rem;
-  }
+        .roadmap__content {
+            grid-template-columns: 1fr;
+            align-content: end;
+            gap: 3rem;
+        }
 
-  .roadmap__header {
-    gap: 1rem;
-  }
+        .roadmap__intro {
+            padding-top: 2rem;
+        }
 
-  .roadmap__content {
-    grid-template-columns: 1fr;
-    align-content: end;
-    gap: 3rem;
-  }
+        .roadmap__intro h2 {
+            max-width: 8ch;
+            font-size: clamp(3.75rem, 17vw, 6rem);
+        }
 
-  .roadmap__intro h2 {
-    max-width: 8ch;
-    font-size: clamp(3.75rem, 17vw, 6rem);
-  }
+        .roadmap__intro > p {
+            max-width: 28rem;
+        }
 
-  .roadmap__intro > p {
-    max-width: 28rem;
-  }
-
-  .roadmap__list li {
-    grid-template-columns: 2.5rem 1fr;
-  }
-}
+        .roadmap__list li {
+            grid-template-columns: 2.5rem 1fr;
+        }
+    }
 </style>

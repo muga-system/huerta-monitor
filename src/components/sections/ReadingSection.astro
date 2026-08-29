@@ -2,7 +2,7 @@
 // src/components/sections/ReadingSection.astro
 ---
 
-<section class="reading">
+<section class="section-surface reading">
     <div class="reading__header">
         <p>Interpretación / Datos</p>
 
@@ -29,17 +29,6 @@
 
 <style>
     .reading {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        min-height: calc(100svh - (var(--page-gutter) * 2));
-        margin: var(--page-gutter);
-        padding: 1.25rem;
-
-        overflow: clip;
-        border-radius: var(--section-radius);
-
         background: var(--color-violet-bg);
         color: var(--color-violet);
     }
@@ -111,10 +100,6 @@
     }
 
     @media (max-width: 48rem) {
-        .reading {
-            padding: 1rem;
-        }
-
         .reading__header {
             gap: 1rem;
         }
@@ -126,7 +111,10 @@
         }
 
         .reading__number {
+            padding-top: 2rem;
+
             font-size: clamp(8rem, 40vw, 13rem);
+            line-height: 0.82;
         }
 
         .reading__description h2 {

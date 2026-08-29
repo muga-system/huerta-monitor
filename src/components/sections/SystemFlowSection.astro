@@ -2,7 +2,7 @@
 // src/components/sections/SystemFlowSection.astro
 ---
 
-<section class="system-flow">
+<section class="section-surface system-flow">
     <div class="system-flow__intro">
         <p>V1 / Circuito base</p>
 
@@ -34,17 +34,6 @@
 
 <style>
     .system-flow {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        min-height: calc(100svh - (var(--page-gutter) * 2));
-        margin: var(--page-gutter);
-        padding: 1.25rem;
-
-        overflow: clip;
-        border-radius: var(--section-radius);
-
         background: var(--color-ochre-bg);
         color: var(--color-ochre);
     }
@@ -110,10 +99,6 @@
     }
 
     @media (max-width: 48rem) {
-        .system-flow {
-            padding: 1rem;
-        }
-
         .system-flow__intro h2 {
             font-size: clamp(3.75rem, 17vw, 6rem);
         }
