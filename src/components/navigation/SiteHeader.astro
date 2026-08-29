@@ -39,16 +39,20 @@ const isActive = (path: string) => {
 
 <style>
     .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         width: 100%;
-        padding: 1rem 1.25rem;
+        height: var(--header-height);
+        padding: 0 1.25rem;
 
-        border-bottom: 1px solid rgb(247 247 243 / 5%);
+        background: var(--color-base);
     }
-
     .site-header__brand,
     .site-header__nav a {
         color: inherit;

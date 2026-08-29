@@ -23,7 +23,7 @@
     display: grid;
     grid-template-rows: auto 1fr;
 
-    min-height: calc(100svh - 45px);
+    min-height: calc(100svh - var(--header-height));
     padding: 1.25rem;
 
     border-bottom: 1px dashed rgb(247 247 243 / 18%);
@@ -74,7 +74,7 @@
 
   @media (max-width: 48rem) {
     .hero {
-      min-height: calc(100svh - 45px);
+      min-height: calc(100svh - var(--header-height));
       padding: 1rem;
     }
 

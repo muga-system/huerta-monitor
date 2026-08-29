@@ -16,7 +16,7 @@ html {
   color: var(--color-text);
 
   scrollbar-width: thin;
-  scrollbar-color: var(--color-text-muted) var(--color-base);
+  scrollbar-color: var(--color-text-muted) transparent;
   scrollbar-gutter: stable;
 }
 
@@ -46,11 +46,11 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 0.625rem;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-base);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
