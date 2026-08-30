@@ -1,5 +1,6 @@
 ---
 import type { MoistureMonitor } from "@/domain/moisture/moisture-monitor";
+import { toMonitorStatusViewModel } from "@/presentation/moisture/monitor-status";
 
 interface Props {
     monitor: MoistureMonitor;
@@ -7,17 +8,7 @@ interface Props {
 
 const { monitor } = Astro.props;
 
-const connection = monitor.kind === "connected" ? "Conectado" : "Desconectado";
-
-const calibration =
-    monitor.kind === "connected"
-        ? monitor.calibration === "ready"
-            ? "Lista"
-            : "Pendiente"
-        : "—";
-
-const lastReading =
-    monitor.reading.kind === "available" ? monitor.reading.measuredAt : "—";
+const status = toMonitorStatusViewModel(monitor);
 ---
 
 <section class="section-surface monitor-status">
@@ -29,17 +20,17 @@ const lastReading =
     <dl class="monitor-status__list">
         <div>
             <dt>Conexión</dt>
-            <dd>{connection}</dd>
+            <dd>{status.connection}</dd>
         </div>
 
         <div>
             <dt>Calibración</dt>
-            <dd>{calibration}</dd>
+            <dd>{status.calibration}</dd>
         </div>
 
         <div>
             <dt>Última lectura</dt>
-            <dd>{lastReading}</dd>
+            <dd>{status.lastReading}</dd>
         </div>
     </dl>
 </section>
