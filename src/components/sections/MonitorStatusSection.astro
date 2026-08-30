@@ -1,0 +1,122 @@
+---
+import type { MoistureMonitor } from "@/domain/moisture/moisture-monitor";
+
+interface Props {
+    monitor: MoistureMonitor;
+}
+
+const { monitor } = Astro.props;
+
+const connection = monitor.kind === "connected" ? "Conectado" : "Desconectado";
+
+const calibration =
+    monitor.kind === "connected"
+        ? monitor.calibration === "ready"
+            ? "Lista"
+            : "Pendiente"
+        : "—";
+
+const lastReading =
+    monitor.reading.kind === "available" ? monitor.reading.measuredAt : "—";
+---
+
+<section class="section-surface monitor-status">
+    <div class="monitor-status__header">
+        <p>Estado / Sistema</p>
+        <p>Monitor técnico</p>
+    </div>
+
+    <dl class="monitor-status__list">
+        <div>
+            <dt>Conexión</dt>
+            <dd>{connection}</dd>
+        </div>
+
+        <div>
+            <dt>Calibración</dt>
+            <dd>{calibration}</dd>
+        </div>
+
+        <div>
+            <dt>Última lectura</dt>
+            <dd>{lastReading}</dd>
+        </div>
+    </dl>
+</section>
+
+<style>
+    .monitor-status {
+        background: var(--color-surface);
+        color: var(--color-text);
+    }
+
+    .monitor-status__header {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .monitor-status__header p {
+        margin: 0;
+
+        font-size: 0.6875rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .monitor-status__list {
+        margin: 0;
+    }
+
+    .monitor-status__list > div {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(12rem, 1fr);
+        gap: 2rem;
+
+        padding: 1.5rem 0;
+
+        border-top: 1px dashed rgb(247 247 243 / 30%);
+    }
+
+    .monitor-status__list > div:last-child {
+        border-bottom: 1px dashed rgb(247 247 243 / 30%);
+    }
+
+    .monitor-status__list dt,
+    .monitor-status__list dd {
+        margin: 0;
+    }
+
+    .monitor-status__list dt {
+        color: var(--color-text-muted);
+
+        font-size: 0.6875rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .monitor-status__list dd {
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 5vw, 5rem);
+        font-weight: 400;
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+    }
+
+    @media (max-width: 48rem) {
+        .monitor-status__header {
+            gap: 1rem;
+        }
+
+        .monitor-status__list > div {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .monitor-status__list dd {
+            font-size: clamp(2.75rem, 13vw, 4.5rem);
+        }
+    }
+</style>
