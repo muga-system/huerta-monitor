@@ -1,0 +1,164 @@
+---
+// src/components/sections/NextStageSection.astro
+---
+
+<section class="next-stage">
+    <div class="next-stage__header">
+      <p>Siguiente etapa</p>
+      <p>Después de validar la V1</p>
+    </div>
+  
+    <div class="next-stage__content">
+      <div class="next-stage__intro">
+        <span>V2</span>
+  
+        <h2>Cuando la lectura sea confiable, el dato puede salir del dispositivo.</h2>
+      </div>
+  
+      <ol class="next-stage__flow">
+        <li>
+          <span>01</span>
+          <p>ESP32</p>
+        </li>
+  
+        <li>
+          <span>02</span>
+          <p>Wi-Fi</p>
+        </li>
+  
+        <li>
+          <span>03</span>
+          <p>Web</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <style>
+    .next-stage {
+      display: grid;
+      grid-template-rows: auto 1fr;
+  
+      min-height: calc(100svh - var(--header-height));
+      padding: 1.25rem;
+    }
+  
+    .next-stage__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  
+    .next-stage__header p {
+      margin: 0;
+  
+      font-size: 0.6875rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  
+    .next-stage__content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(20rem, 1fr);
+      align-items: end;
+      gap: 4rem;
+    }
+  
+    .next-stage__intro > span {
+      display: block;
+      margin-bottom: 1.5rem;
+  
+      color: var(--color-text-muted);
+  
+      font-size: 0.6875rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  
+    .next-stage__intro h2 {
+      max-width: 11ch;
+      margin: 0;
+  
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 8vw, 8rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+    }
+  
+    .next-stage__flow {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+  
+      margin: 0;
+      padding: 0;
+  
+      border-top: 1px dashed rgb(247 247 243 / 30%);
+      border-left: 1px dashed rgb(247 247 243 / 30%);
+  
+      list-style: none;
+    }
+  
+    .next-stage__flow li {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  
+      min-height: 12rem;
+      padding: 1rem;
+  
+      border-right: 1px dashed rgb(247 247 243 / 30%);
+      border-bottom: 1px dashed rgb(247 247 243 / 30%);
+    }
+  
+    .next-stage__flow span {
+      color: var(--color-text-muted);
+  
+      font-size: 0.6875rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+    }
+  
+    .next-stage__flow p {
+      margin: 0;
+  
+      font-size: clamp(1.125rem, 2vw, 1.75rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+  
+    @media (max-width: 48rem) {
+      .next-stage {
+        padding: 1rem;
+      }
+  
+      .next-stage__header {
+        gap: 1rem;
+      }
+  
+      .next-stage__content {
+        grid-template-columns: 1fr;
+        align-content: end;
+        gap: 3rem;
+      }
+  
+      .next-stage__intro {
+        padding-top: 2rem;
+      }
+  
+      .next-stage__intro h2 {
+        max-width: 9ch;
+        font-size: clamp(3.75rem, 17vw, 6rem);
+      }
+  
+      .next-stage__flow {
+        grid-template-columns: 1fr;
+      }
+  
+      .next-stage__flow li {
+        min-height: 8rem;
+      }
+    }
+  </style>  
