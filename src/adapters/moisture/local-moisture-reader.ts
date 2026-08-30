@@ -1,10 +1,13 @@
 // src/adapters/moisture/local-moisture-reader.ts
 
-import type { MoistureReading } from '@/domain/moisture/moisture-reading';
+import type { MoistureMonitor } from '@/domain/moisture/moisture-monitor';
 
-export const getCurrentMoistureReading =
-    async (): Promise<MoistureReading> => {
+export const getCurrentMoistureMonitor =
+    async (): Promise<MoistureMonitor> => {
         return {
-            kind: 'unavailable',
+            kind: 'disconnected',
+            reading: {
+                kind: 'unavailable',
+            },
         };
     };

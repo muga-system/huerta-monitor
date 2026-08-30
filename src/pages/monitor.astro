@@ -1,12 +1,12 @@
 ---
 // src/pages/monitor.astro
-import { getCurrentMoistureReading } from "@/adapters/moisture/local-moisture-reader";
+import { getCurrentMoistureMonitor } from "@/adapters/moisture/local-moisture-reader";
 import MonitorIntroSection from "@/components/sections/MonitorIntroSection.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
-const reading = await getCurrentMoistureReading();
+const monitor = await getCurrentMoistureMonitor();
 ---
 
 <BaseLayout title="Monitor | Huerta Monitor">
-    <MonitorIntroSection reading={reading} />
+    <MonitorIntroSection reading={monitor.reading} />
 </BaseLayout>
