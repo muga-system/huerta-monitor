@@ -1,10 +1,16 @@
 ---
 // src/pages/monitor.astro
 
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { MoistureReading } from "@/domain/moisture/moisture-reading";
+
 import MonitorIntroSection from "@/components/sections/MonitorIntroSection.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const reading: MoistureReading = {
+    kind: "unavailable",
+};
 ---
 
 <BaseLayout title="Monitor | Huerta Monitor">
-    <MonitorIntroSection />
+    <MonitorIntroSection reading={reading} />
 </BaseLayout>
