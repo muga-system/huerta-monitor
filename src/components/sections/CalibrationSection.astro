@@ -1,0 +1,180 @@
+---
+// src/components/sections/CalibrationSection.astro
+---
+
+<section class="section-surface calibration">
+    <div class="calibration__header">
+      <p>Calibración / V1</p>
+      <p>Señal → Contexto</p>
+    </div>
+  
+    <div class="calibration__content">
+      <div class="calibration__intro">
+        <h2>Medir no es entender.</h2>
+  
+        <p>
+          El sensor entrega una lectura cruda. Para convertirla en humedad útil,
+          primero necesitamos conocer cómo responde en nuestra propia tierra.
+        </p>
+      </div>
+  
+      <div class="calibration__model">
+        <div class="calibration__reference">
+          <span>01</span>
+  
+          <div>
+            <p>Referencia seca</p>
+            <p>Valor observado cuando la tierra necesita agua.</p>
+          </div>
+        </div>
+  
+        <div class="calibration__reference">
+          <span>02</span>
+  
+          <div>
+            <p>Referencia húmeda</p>
+            <p>Valor observado después de alcanzar una humedad adecuada.</p>
+          </div>
+        </div>
+  
+        <div class="calibration__result">
+          <span>Resultado</span>
+          <p>Lectura cruda → porcentaje → estado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .calibration {
+      background: var(--color-clay-bg);
+      color: var(--color-clay);
+    }
+  
+    .calibration__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  
+    .calibration__header p {
+      margin: 0;
+  
+      font-size: 0.6875rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  
+    .calibration__content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(22rem, 1fr);
+      align-items: end;
+      gap: 4rem;
+    }
+  
+    .calibration__intro h2 {
+      max-width: 8ch;
+      margin: 0;
+  
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 8vw, 8rem);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+    }
+  
+    .calibration__intro > p {
+      max-width: 28rem;
+      margin: 2rem 0 0;
+  
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+  
+    .calibration__model {
+      border-top: 1px dashed currentColor;
+    }
+  
+    .calibration__reference {
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+  
+      padding: 1.25rem 0;
+  
+      border-bottom: 1px dashed currentColor;
+    }
+  
+    .calibration__reference span {
+      font-size: 0.6875rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+    }
+  
+    .calibration__reference p {
+      margin: 0;
+    }
+  
+    .calibration__reference p:first-child {
+      font-size: 1.125rem;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+  
+    .calibration__reference p:last-child {
+      max-width: 26rem;
+      margin-top: 0.75rem;
+  
+      font-size: 0.8125rem;
+      line-height: 1.5;
+    }
+  
+    .calibration__result {
+      padding: 2rem 0 0;
+    }
+  
+    .calibration__result span {
+      font-size: 0.6875rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  
+    .calibration__result p {
+      max-width: 14ch;
+      margin: 1rem 0 0;
+  
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+  
+    @media (max-width: 48rem) {
+      .calibration__header {
+        gap: 1rem;
+      }
+  
+      .calibration__content {
+        grid-template-columns: 1fr;
+        align-content: end;
+        gap: 3rem;
+      }
+  
+      .calibration__intro {
+        padding-top: 2rem;
+      }
+  
+      .calibration__intro h2 {
+        max-width: 7ch;
+        font-size: clamp(3.75rem, 17vw, 6rem);
+      }
+  
+      .calibration__reference {
+        grid-template-columns: 2.5rem 1fr;
+      }
+    }
+  </style>
