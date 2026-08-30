@@ -9,6 +9,7 @@ import {
 import MonitorIntroSection from '@/components/sections/MonitorIntroSection.astro';
 import MonitorStatusSection from '@/components/sections/MonitorStatusSection.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import MoistureInterpretationSection from '@/components/sections/MoistureInterpretationSection.astro';
 
 export function getStaticPaths() {
   if (!import.meta.env.DEV) {
@@ -35,4 +36,5 @@ if (!monitor) {
 <BaseLayout title={`Monitor Demo | ${fixture}`}>
   <MonitorIntroSection monitor={monitor} isDemo={true} />
   <MonitorStatusSection monitor={monitor} />
+  <MoistureInterpretationSection monitor={monitor} isDemo={true} />
 </BaseLayout>

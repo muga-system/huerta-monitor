@@ -4,6 +4,7 @@ import { getCurrentMoistureMonitor } from '@/adapters/moisture/local-moisture-re
 import MonitorIntroSection from '@/components/sections/MonitorIntroSection.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import MonitorStatusSection from '@/components/sections/MonitorStatusSection.astro';
+import MoistureInterpretationSection from '@/components/sections/MoistureInterpretationSection.astro';
 
 const monitor = await getCurrentMoistureMonitor();
 ---
@@ -11,4 +12,5 @@ const monitor = await getCurrentMoistureMonitor();
 <BaseLayout title="Monitor | Huerta Monitor">
   <MonitorIntroSection monitor={monitor} />
   <MonitorStatusSection monitor={monitor} />
+  <MoistureInterpretationSection monitor={monitor} />
 </BaseLayout>

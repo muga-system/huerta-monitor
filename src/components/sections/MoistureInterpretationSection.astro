@@ -1,0 +1,150 @@
+---
+// src\components\sections\MoistureInterpretationSection.astro
+
+import type { MoistureMonitor } from '@/domain/moisture/moisture-monitor';
+import { toMoistureInterpretationViewModel } from '@/presentation/moisture/moisture-interpretation';
+
+interface Props {
+  monitor: MoistureMonitor;
+  isDemo?: boolean;
+}
+
+const { monitor, isDemo = false } = Astro.props;
+
+const interpretation = toMoistureInterpretationViewModel(monitor);
+
+const status = isDemo
+  ? `${interpretation.status} / Demo`
+  : interpretation.status;
+---
+
+<section
+  class:list={[
+    'section-surface',
+    'moisture-interpretation',
+    `moisture-interpretation--${interpretation.tone}`,
+  ]}
+>
+  <div class="moisture-interpretation__header">
+    <p>Interpretación / Humedad</p>
+    <p>{status}</p>
+  </div>
+
+  <div class="moisture-interpretation__content">
+    <p class="moisture-interpretation__value">
+      {interpretation.value}
+    </p>
+
+    <div class="moisture-interpretation__text">
+      <h2>{interpretation.title}</h2>
+      <p>{interpretation.description}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .moisture-interpretation {
+    color: var(--color-text);
+  }
+
+  .moisture-interpretation--neutral {
+    background: var(--color-surface);
+  }
+
+  .moisture-interpretation--dry {
+    background: var(--color-clay-bg);
+    color: var(--color-clay);
+  }
+
+  .moisture-interpretation--optimal {
+    background: var(--color-olive-bg);
+    color: var(--color-olive);
+  }
+
+  .moisture-interpretation--wet {
+    background: var(--color-violet-bg);
+    color: var(--color-violet);
+  }
+
+  .moisture-interpretation__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .moisture-interpretation__header p {
+    margin: 0;
+
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .moisture-interpretation__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 1fr);
+    align-items: end;
+    gap: 4rem;
+  }
+
+  .moisture-interpretation__value {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(9rem, 24vw, 24rem);
+    font-weight: 400;
+    line-height: 0.7;
+    letter-spacing: -0.07em;
+  }
+
+  .moisture-interpretation__text {
+    padding-top: 1.25rem;
+
+    border-top: 1px dashed currentColor;
+  }
+
+  .moisture-interpretation__text h2 {
+    max-width: 9ch;
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .moisture-interpretation__text p {
+    max-width: 30rem;
+    margin: 2rem 0 0;
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 48rem) {
+    .moisture-interpretation__header {
+      gap: 1rem;
+    }
+
+    .moisture-interpretation__content {
+      grid-template-columns: 1fr;
+      align-content: end;
+      gap: 3rem;
+    }
+
+    .moisture-interpretation__value {
+      padding-top: 2rem;
+
+      font-size: clamp(8rem, 40vw, 13rem);
+      line-height: 0.82;
+    }
+
+    .moisture-interpretation__text h2 {
+      max-width: 8ch;
+
+      font-size: clamp(3.5rem, 14vw, 5.5rem);
+    }
+  }
+</style>
