@@ -5,6 +5,8 @@ export const DEV_MONITOR_FIXTURE_NAMES = [
   'connected-pending',
   'connected-ready',
   'dry-reading',
+  'optimal-reading',
+  'wet-reading',
 ] as const;
 
 export type DevMonitorFixtureName = (typeof DEV_MONITOR_FIXTURE_NAMES)[number];
@@ -41,6 +43,28 @@ const fixtures = {
       percentage: 42,
       status: 'dry',
       measuredAt: '2026-08-30T10:30:00-03:00',
+    },
+  },
+
+  'optimal-reading': {
+    kind: 'connected',
+    calibration: 'ready',
+    reading: {
+      kind: 'available',
+      percentage: 63,
+      status: 'optimal',
+      measuredAt: '2026-08-30T10:45:00-03:00',
+    },
+  },
+
+  'wet-reading': {
+    kind: 'connected',
+    calibration: 'ready',
+    reading: {
+      kind: 'available',
+      percentage: 84,
+      status: 'wet',
+      measuredAt: '2026-08-30T11:00:00-03:00',
     },
   },
 } satisfies Record<DevMonitorFixtureName, MoistureMonitor>;
