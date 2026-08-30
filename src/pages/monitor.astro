@@ -8,5 +8,5 @@ const monitor = await getCurrentMoistureMonitor();
 ---
 
 <BaseLayout title="Monitor | Huerta Monitor">
-    <MonitorIntroSection reading={monitor.reading} />
+    <MonitorIntroSection monitor={monitor} />
 </BaseLayout>
