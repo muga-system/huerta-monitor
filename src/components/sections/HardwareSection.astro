@@ -1,0 +1,201 @@
+---
+// src/components/sections/HardwareSection.astro
+---
+
+<section class="hardware">
+    <div class="hardware__header">
+        <p>Hardware / V1</p>
+        <p>Configuración mínima</p>
+    </div>
+
+    <div class="hardware__content">
+        <div class="hardware__intro">
+            <h2>Solo lo necesario para obtener la primera lectura.</h2>
+
+            <p>
+                La V1 no intenta automatizar la huerta. Primero necesitamos
+                comprobar que el circuito puede medir humedad de forma estable.
+            </p>
+        </div>
+
+        <ul class="hardware__list">
+            <li>
+                <span>01</span>
+                <div>
+                    <p>ESP32 DevKit</p>
+                    <p>
+                        Microcontrolador principal, preferentemente con conexión
+                        USB-C.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span>02</span>
+                <div>
+                    <p>Sensor capacitivo V1.2</p>
+                    <p>
+                        Uno o dos sensores para medir humedad sin usar
+                        electrodos resistivos.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span>03</span>
+                <div>
+                    <p>Cables Dupont</p>
+                    <p>Conexión entre sensor, protoboard y ESP32.</p>
+                </div>
+            </li>
+
+            <li>
+                <span>04</span>
+                <div>
+                    <p>Protoboard</p>
+                    <p>
+                        Base pequeña para montar y modificar el circuito
+                        inicial.
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <span>05</span>
+                <div>
+                    <p>USB de datos</p>
+                    <p>
+                        Alimentación, programación y lectura desde la
+                        computadora.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<style>
+    .hardware {
+        min-height: calc(100svh - (var(--page-gutter) * 2));
+        margin: var(--page-gutter);
+        padding: 1.25rem;
+
+        overflow: clip;
+        border-radius: var(--section-radius);
+
+        background: var(--color-violet-bg);
+        color: var(--color-violet);
+    }
+
+    .hardware__header {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .hardware__header p {
+        margin: 0;
+
+        font-size: 0.6875rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .hardware__content {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(22rem, 1fr);
+        align-items: end;
+        gap: 4rem;
+
+        margin-top: 6rem;
+    }
+
+    .hardware__intro h2 {
+        max-width: 9ch;
+        margin: 0;
+
+        font-family: var(--font-display);
+        font-size: clamp(4rem, 7vw, 7rem);
+        font-weight: 400;
+        line-height: 0.88;
+        letter-spacing: -0.04em;
+    }
+
+    .hardware__intro > p {
+        max-width: 28rem;
+        margin: 2rem 0 0;
+
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .hardware__list {
+        margin: 0;
+        padding: 0;
+
+        border-top: 1px dashed currentColor;
+
+        list-style: none;
+    }
+
+    .hardware__list li {
+        display: grid;
+        grid-template-columns: 3rem 1fr;
+        gap: 1rem;
+
+        padding: 1.25rem 0;
+
+        border-bottom: 1px dashed currentColor;
+    }
+
+    .hardware__list span {
+        font-size: 0.6875rem;
+        line-height: 1;
+        letter-spacing: 0.08em;
+    }
+
+    .hardware__list div p {
+        margin: 0;
+    }
+
+    .hardware__list div p:first-child {
+        font-size: 1.125rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+    }
+
+    .hardware__list div p:last-child {
+        max-width: 28rem;
+        margin-top: 0.75rem;
+
+        font-size: 0.8125rem;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 48rem) {
+        .hardware {
+            padding: 1rem;
+        }
+
+        .hardware__header {
+            gap: 1rem;
+        }
+
+        .hardware__content {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+
+            margin-top: 5rem;
+        }
+
+        .hardware__intro h2 {
+            max-width: 8ch;
+            font-size: clamp(3.75rem, 16vw, 6rem);
+        }
+
+        .hardware__list li {
+            grid-template-columns: 2.5rem 1fr;
+        }
+    }
+</style>
