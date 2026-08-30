@@ -3,133 +3,132 @@
 ---
 
 <section class="section-surface reading">
-    <div class="reading__header">
-        <p>Interpretación / Datos</p>
+  <div class="reading__header">
+    <p>Interpretación / Datos</p>
 
-        <p>Ejemplo de interfaz</p>
+    <p>Ejemplo de interfaz</p>
+  </div>
+
+  <div class="reading__content">
+    <div class="reading__value">
+      <p class="reading__number">42%</p>
+      <p class="reading__status">Seco / Demo</p>
     </div>
 
-    <div class="reading__content">
-        <div class="reading__value">
-            <p class="reading__number">42%</p>
-            <p class="reading__status">Seco / Demo</p>
-        </div>
+    <div class="reading__description">
+      <h2>Un número solo no alcanza.</h2>
 
-        <div class="reading__description">
-            <h2>Un número solo no alcanza.</h2>
-
-            <p>
-                La lectura del sensor necesita contexto. Primero medimos valores
-                reales, después calibramos qué significa seco y húmedo para
-                nuestra tierra.
-            </p>
-        </div>
+      <p>
+        La lectura del sensor necesita contexto. Primero medimos valores reales,
+        después calibramos qué significa seco y húmedo para nuestra tierra.
+      </p>
     </div>
+  </div>
 </section>
 
 <style>
-    .reading {
-        background: var(--color-violet-bg);
-        color: var(--color-violet);
-    }
+  .reading {
+    background: var(--color-violet-bg);
+    color: var(--color-violet);
+  }
 
+  .reading__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .reading__header p {
+    margin: 0;
+
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .reading__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 1fr);
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .reading__number {
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(8rem, 22vw, 22rem);
+    font-weight: 400;
+    line-height: 0.7;
+    letter-spacing: -0.07em;
+  }
+
+  .reading__status {
+    margin: 2rem 0 0;
+
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .reading__description {
+    padding-top: 1.25rem;
+
+    border-top: 1px dashed currentColor;
+  }
+
+  .reading__description h2 {
+    max-width: 9ch;
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .reading__description p {
+    max-width: 32rem;
+    margin: 2rem 0 0;
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 48rem) {
     .reading__header {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-
-    .reading__header p {
-        margin: 0;
-
-        font-size: 0.6875rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      gap: 1rem;
     }
 
     .reading__content {
-        display: grid;
-        grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 1fr);
-        align-items: end;
-        gap: 3rem;
+      grid-template-columns: 1fr;
+      align-content: end;
+      gap: 3rem;
     }
 
     .reading__number {
-        margin: 0;
+      padding-top: 2rem;
 
-        font-family: var(--font-display);
-        font-size: clamp(8rem, 22vw, 22rem);
-        font-weight: 400;
-        line-height: 0.7;
-        letter-spacing: -0.07em;
-    }
-
-    .reading__status {
-        margin: 2rem 0 0;
-
-        font-size: 0.75rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
-
-    .reading__description {
-        padding-top: 1.25rem;
-
-        border-top: 1px dashed currentColor;
+      font-size: clamp(8rem, 40vw, 13rem);
+      line-height: 0.82;
     }
 
     .reading__description h2 {
-        max-width: 9ch;
-        margin: 0;
-
-        font-family: var(--font-display);
-        font-size: clamp(3rem, 5vw, 5rem);
-        font-weight: 400;
-        line-height: 0.9;
-        letter-spacing: -0.04em;
+      max-width: 8ch;
+      font-size: clamp(3.5rem, 14vw, 5.5rem);
     }
 
     .reading__description p {
-        max-width: 32rem;
-        margin: 2rem 0 0;
-
-        font-size: 0.875rem;
-        line-height: 1.5;
+      max-width: 28rem;
     }
+  }
 
-    @media (max-width: 48rem) {
-        .reading__header {
-            gap: 1rem;
-        }
-
-        .reading__content {
-            grid-template-columns: 1fr;
-            align-content: end;
-            gap: 3rem;
-        }
-
-        .reading__number {
-            padding-top: 2rem;
-
-            font-size: clamp(8rem, 40vw, 13rem);
-            line-height: 0.82;
-        }
-
-        .reading__description h2 {
-            max-width: 8ch;
-            font-size: clamp(3.5rem, 14vw, 5.5rem);
-        }
-
-        .reading__description p {
-            max-width: 28rem;
-        }
+  @media (max-width: 24rem) {
+    .reading__number {
+      font-size: 34vw;
     }
-
-    @media (max-width: 24rem) {
-        .reading__number {
-            font-size: 34vw;
-        }
-    }
+  }
 </style>

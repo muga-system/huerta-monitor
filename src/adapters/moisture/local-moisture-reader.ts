@@ -2,12 +2,11 @@
 
 import type { MoistureMonitor } from '@/domain/moisture/moisture-monitor';
 
-export const getCurrentMoistureMonitor =
-    async (): Promise<MoistureMonitor> => {
-        return {
-            kind: 'disconnected',
-            reading: {
-                kind: 'unavailable',
-            },
-        };
-    };
+export const getCurrentMoistureMonitor = async (): Promise<MoistureMonitor> => {
+  return {
+    kind: 'disconnected',
+    reading: {
+      kind: 'unavailable',
+    },
+  };
+};

@@ -3,115 +3,115 @@
 ---
 
 <section class="section-surface project-status">
-    <div class="project-status__header">
-        <p>Estado actual / V1</p>
-        <p>Hardware pendiente</p>
+  <div class="project-status__header">
+    <p>Estado actual / V1</p>
+    <p>Hardware pendiente</p>
+  </div>
+
+  <div class="project-status__content">
+    <div class="project-status__state">
+      <p>Sin dispositivo conectado</p>
+      <h2>Esperando una lectura real.</h2>
     </div>
 
-    <div class="project-status__content">
-        <div class="project-status__state">
-            <p>Sin dispositivo conectado</p>
-            <h2>Esperando una lectura real.</h2>
-        </div>
+    <div class="project-status__detail">
+      <p>
+        El proyecto permanece detenido hasta contar con el ESP32 y el sensor
+        capacitivo.
+      </p>
 
-        <div class="project-status__detail">
-            <p>
-                El proyecto permanece detenido hasta contar con el ESP32 y el
-                sensor capacitivo.
-            </p>
-
-            <p>
-                El siguiente objetivo es conseguir una lectura estable de
-                humedad y verla directamente en la computadora.
-            </p>
-        </div>
+      <p>
+        El siguiente objetivo es conseguir una lectura estable de humedad y
+        verla directamente en la computadora.
+      </p>
     </div>
+  </div>
 </section>
 
 <style>
-    .project-status {
-        background: var(--color-clay-bg);
-        color: var(--color-clay);
-    }
+  .project-status {
+    background: var(--color-clay-bg);
+    color: var(--color-clay);
+  }
 
+  .project-status__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .project-status__header p {
+    margin: 0;
+
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-status__content {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .project-status__state > p {
+    margin: 0 0 1.5rem;
+
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .project-status__state h2 {
+    max-width: 10ch;
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+  }
+
+  .project-status__detail {
+    padding-top: 1.25rem;
+
+    border-top: 1px dashed currentColor;
+  }
+
+  .project-status__detail p {
+    max-width: 32rem;
+    margin: 0;
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .project-status__detail p + p {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 48rem) {
     .project-status__header {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-
-    .project-status__header p {
-        margin: 0;
-
-        font-size: 0.6875rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      gap: 1rem;
     }
 
     .project-status__content {
-        display: grid;
-        grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
-        align-items: end;
-        gap: 3rem;
-    }
-
-    .project-status__state > p {
-        margin: 0 0 1.5rem;
-
-        font-size: 0.75rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      grid-template-columns: 1fr;
+      align-content: end;
+      gap: 3rem;
     }
 
     .project-status__state h2 {
-        max-width: 10ch;
-        margin: 0;
-
-        font-family: var(--font-display);
-        font-size: clamp(4rem, 8vw, 8rem);
-        font-weight: 400;
-        line-height: 0.88;
-        letter-spacing: -0.04em;
+      max-width: 8ch;
+      font-size: clamp(3.75rem, 17vw, 6rem);
     }
 
     .project-status__detail {
-        padding-top: 1.25rem;
-
-        border-top: 1px dashed currentColor;
+      width: 100%;
     }
-
-    .project-status__detail p {
-        max-width: 32rem;
-        margin: 0;
-
-        font-size: 0.875rem;
-        line-height: 1.5;
-    }
-
-    .project-status__detail p + p {
-        margin-top: 1.5rem;
-    }
-
-    @media (max-width: 48rem) {
-        .project-status__header {
-            gap: 1rem;
-        }
-
-        .project-status__content {
-            grid-template-columns: 1fr;
-            align-content: end;
-            gap: 3rem;
-        }
-
-        .project-status__state h2 {
-            max-width: 8ch;
-            font-size: clamp(3.75rem, 17vw, 6rem);
-        }
-
-        .project-status__detail {
-            width: 100%;
-        }
-    }
+  }
 </style>

@@ -1,8 +1,8 @@
 ---
 // src/components/sections/MonitorIntroSection.astro
 
-import type { MoistureMonitor } from "@/domain/moisture/moisture-monitor";
-import type { MoistureStatus } from "@/domain/moisture/moisture-reading";
+import type { MoistureMonitor } from '@/domain/moisture/moisture-monitor';
+import type { MoistureStatus } from '@/domain/moisture/moisture-reading';
 
 interface Props {
   monitor: MoistureMonitor;
@@ -13,21 +13,21 @@ const { monitor } = Astro.props;
 const { reading } = monitor;
 
 const statusLabels: Record<MoistureStatus, string> = {
-  dry: "Seco",
-  optimal: "Óptimo",
-  wet: "Húmedo",
+  dry: 'Seco',
+  optimal: 'Óptimo',
+  wet: 'Húmedo',
 };
 
-const isAvailable = reading.kind === "available";
+const isAvailable = reading.kind === 'available';
 
-const value = isAvailable ? `${reading.percentage}%` : "--%";
+const value = isAvailable ? `${reading.percentage}%` : '--%';
 
-const status = isAvailable ? statusLabels[reading.status] : "Sin lectura";
+const status = isAvailable ? statusLabels[reading.status] : 'Sin lectura';
 
 const deviceStatus =
-  monitor.kind === "connected"
-    ? "Dispositivo conectado"
-    : "Sin dispositivo conectado";
+  monitor.kind === 'connected'
+    ? 'Dispositivo conectado'
+    : 'Sin dispositivo conectado';
 ---
 
 <section class="monitor-intro">

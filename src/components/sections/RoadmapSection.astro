@@ -3,166 +3,165 @@
 ---
 
 <section class="section-surface roadmap">
-    <div class="roadmap__header">
-        <p>Evolución / Sistema</p>
-        <p>Después de la V1</p>
+  <div class="roadmap__header">
+    <p>Evolución / Sistema</p>
+    <p>Después de la V1</p>
+  </div>
+
+  <div class="roadmap__content">
+    <div class="roadmap__intro">
+      <h2>Primero medir. Después ampliar.</h2>
+
+      <p>
+        Cada nueva capa entra cuando la anterior ya funciona de forma estable.
+      </p>
     </div>
 
-    <div class="roadmap__content">
-        <div class="roadmap__intro">
-            <h2>Primero medir. Después ampliar.</h2>
+    <ol class="roadmap__list">
+      <li>
+        <span>01</span>
+        <p>Humedad del suelo</p>
+      </li>
 
-            <p>
-                Cada nueva capa entra cuando la anterior ya funciona de forma
-                estable.
-            </p>
-        </div>
+      <li>
+        <span>02</span>
+        <p>Conexión Wi-Fi</p>
+      </li>
 
-        <ol class="roadmap__list">
-            <li>
-                <span>01</span>
-                <p>Humedad del suelo</p>
-            </li>
+      <li>
+        <span>03</span>
+        <p>Visualización web</p>
+      </li>
 
-            <li>
-                <span>02</span>
-                <p>Conexión Wi-Fi</p>
-            </li>
+      <li>
+        <span>04</span>
+        <p>Historial de mediciones</p>
+      </li>
 
-            <li>
-                <span>03</span>
-                <p>Visualización web</p>
-            </li>
+      <li>
+        <span>05</span>
+        <p>Varios sectores</p>
+      </li>
 
-            <li>
-                <span>04</span>
-                <p>Historial de mediciones</p>
-            </li>
+      <li>
+        <span>06</span>
+        <p>Alertas</p>
+      </li>
 
-            <li>
-                <span>05</span>
-                <p>Varios sectores</p>
-            </li>
-
-            <li>
-                <span>06</span>
-                <p>Alertas</p>
-            </li>
-
-            <li>
-                <span>07</span>
-                <p>Riego automático</p>
-            </li>
-        </ol>
-    </div>
+      <li>
+        <span>07</span>
+        <p>Riego automático</p>
+      </li>
+    </ol>
+  </div>
 </section>
 
 <style>
-    .roadmap {
-        background: var(--color-olive-bg);
-        color: var(--color-olive);
-    }
+  .roadmap {
+    background: var(--color-olive-bg);
+    color: var(--color-olive);
+  }
 
-    .roadmap__header {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-    }
+  .roadmap__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
 
-    .roadmap__header p {
-        margin: 0;
+  .roadmap__header p {
+    margin: 0;
 
-        font-size: 0.6875rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 
+  .roadmap__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr);
+    align-items: end;
+    gap: 4rem;
+  }
+
+  .roadmap__intro {
+    padding-top: 2rem;
+  }
+
+  .roadmap__intro h2 {
+    max-width: 9ch;
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+  }
+
+  .roadmap__intro > p {
+    max-width: 28rem;
+    margin: 2rem 0 0;
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .roadmap__list {
+    margin: 0;
+    padding: 0;
+
+    border-top: 1px dashed currentColor;
+
+    list-style: none;
+  }
+
+  .roadmap__list li {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1rem;
+
+    padding: 1rem 0;
+
+    border-bottom: 1px dashed currentColor;
+  }
+
+  .roadmap__list span {
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
+
+  .roadmap__list p {
+    margin: 0;
+
+    font-size: clamp(1rem, 1.5vw, 1.375rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 48rem) {
     .roadmap__content {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr);
-        align-items: end;
-        gap: 4rem;
+      grid-template-columns: 1fr;
+      align-content: end;
+      gap: 3rem;
     }
-    
+
     .roadmap__intro {
-        padding-top: 2rem;
+      padding-top: 2rem;
     }
 
     .roadmap__intro h2 {
-        max-width: 9ch;
-        margin: 0;
-
-        font-family: var(--font-display);
-        font-size: clamp(4rem, 8vw, 8rem);
-        font-weight: 400;
-        line-height: 0.88;
-        letter-spacing: -0.04em;
+      max-width: 8ch;
+      font-size: clamp(3.75rem, 17vw, 6rem);
     }
 
     .roadmap__intro > p {
-        max-width: 28rem;
-        margin: 2rem 0 0;
-
-        font-size: 0.875rem;
-        line-height: 1.5;
-    }
-
-    .roadmap__list {
-        margin: 0;
-        padding: 0;
-
-        border-top: 1px dashed currentColor;
-
-        list-style: none;
+      max-width: 28rem;
     }
 
     .roadmap__list li {
-        display: grid;
-        grid-template-columns: 3rem 1fr;
-        gap: 1rem;
-
-        padding: 1rem 0;
-
-        border-bottom: 1px dashed currentColor;
+      grid-template-columns: 2.5rem 1fr;
     }
-
-    .roadmap__list span {
-        font-size: 0.6875rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-    }
-
-    .roadmap__list p {
-        margin: 0;
-
-        font-size: clamp(1rem, 1.5vw, 1.375rem);
-        line-height: 1;
-        letter-spacing: -0.02em;
-    }
-
-    @media (max-width: 48rem) {
-        .roadmap__content {
-            grid-template-columns: 1fr;
-            align-content: end;
-            gap: 3rem;
-        }
-
-        .roadmap__intro {
-            padding-top: 2rem;
-        }
-
-        .roadmap__intro h2 {
-            max-width: 8ch;
-            font-size: clamp(3.75rem, 17vw, 6rem);
-        }
-
-        .roadmap__intro > p {
-            max-width: 28rem;
-        }
-
-        .roadmap__list li {
-            grid-template-columns: 2.5rem 1fr;
-        }
-    }
+  }
 </style>

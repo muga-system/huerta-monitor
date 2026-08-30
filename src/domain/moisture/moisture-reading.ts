@@ -3,12 +3,12 @@
 export type MoistureStatus = 'dry' | 'optimal' | 'wet';
 
 export type MoistureReading =
-    | {
-        kind: 'unavailable';
+  | {
+      kind: 'unavailable';
     }
-    | {
-        kind: 'available';
-        percentage: number;
-        status: MoistureStatus;
-        measuredAt: string;
+  | {
+      kind: 'available';
+      percentage: number;
+      status: MoistureStatus;
+      measuredAt: string;
     };

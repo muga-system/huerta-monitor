@@ -3,144 +3,147 @@
 ---
 
 <section class="section-surface console-output">
-    <div class="console-output__header">
-      <p>Salida / V1</p>
-      <p>ESP32 → Computadora</p>
-    </div>
-  
-    <div class="console-output__content">
-      <div class="console-output__intro">
-        <h2>La primera victoria es ver el dato.</h2>
-  
-        <p>
-          Antes de Wi-Fi o interfaz web, la V1 termina cuando el ESP32 entrega
-          lecturas estables de humedad y podemos observarlas directamente en la
-          computadora.
-        </p>
-      </div>
-  
-      <div class="console-output__terminal" aria-label="Ejemplo de salida por consola">
-        <div class="console-output__terminal-header">
-          <span>Serial Monitor</span>
-          <span>Demo</span>
-        </div>
-  
-        <div class="console-output__lines">
-          <p><span>01</span> Lectura sensor: ----</p>
-          <p><span>02</span> Humedad: --%</p>
-          <p><span>03</span> Estado: sin calibrar</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="console-output__header">
+    <p>Salida / V1</p>
+    <p>ESP32 → Computadora</p>
+  </div>
 
-  <style>
-    .console-output {
-      background: var(--color-olive-bg);
-      color: var(--color-olive);
-    }
-  
+  <div class="console-output__content">
+    <div class="console-output__intro">
+      <h2>La primera victoria es ver el dato.</h2>
+
+      <p>
+        Antes de Wi-Fi o interfaz web, la V1 termina cuando el ESP32 entrega
+        lecturas estables de humedad y podemos observarlas directamente en la
+        computadora.
+      </p>
+    </div>
+
+    <div
+      class="console-output__terminal"
+      aria-label="Ejemplo de salida por consola"
+    >
+      <div class="console-output__terminal-header">
+        <span>Serial Monitor</span>
+        <span>Demo</span>
+      </div>
+
+      <div class="console-output__lines">
+        <p><span>01</span> Lectura sensor: ----</p>
+        <p><span>02</span> Humedad: --%</p>
+        <p><span>03</span> Estado: sin calibrar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .console-output {
+    background: var(--color-olive-bg);
+    color: var(--color-olive);
+  }
+
+  .console-output__header {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .console-output__header p {
+    margin: 0;
+
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .console-output__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(22rem, 1fr);
+    align-items: end;
+    gap: 4rem;
+  }
+
+  .console-output__intro h2 {
+    max-width: 9ch;
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+  }
+
+  .console-output__intro > p {
+    max-width: 30rem;
+    margin: 2rem 0 0;
+
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .console-output__terminal {
+    border: 1px dashed currentColor;
+  }
+
+  .console-output__terminal-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    padding: 0.875rem 1rem;
+
+    border-bottom: 1px dashed currentColor;
+
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .console-output__lines {
+    padding: 1rem;
+  }
+
+  .console-output__lines p {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+
+    margin: 0;
+
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  .console-output__lines p + p {
+    margin-top: 0.75rem;
+  }
+
+  .console-output__lines span {
+    opacity: 0.65;
+  }
+
+  @media (max-width: 48rem) {
     .console-output__header {
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
+      gap: 1rem;
     }
-  
-    .console-output__header p {
-      margin: 0;
-  
-      font-size: 0.6875rem;
-      line-height: 1;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-  
+
     .console-output__content {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(22rem, 1fr);
-      align-items: end;
-      gap: 4rem;
+      grid-template-columns: 1fr;
+      align-content: end;
+      gap: 3rem;
     }
-  
+
+    .console-output__intro {
+      padding-top: 2rem;
+    }
+
     .console-output__intro h2 {
-      max-width: 9ch;
-      margin: 0;
-  
-      font-family: var(--font-display);
-      font-size: clamp(4rem, 8vw, 8rem);
-      font-weight: 400;
-      line-height: 0.88;
-      letter-spacing: -0.04em;
+      max-width: 8ch;
+      font-size: clamp(3.75rem, 17vw, 6rem);
     }
-  
-    .console-output__intro > p {
-      max-width: 30rem;
-      margin: 2rem 0 0;
-  
-      font-size: 0.875rem;
-      line-height: 1.5;
-    }
-  
-    .console-output__terminal {
-      border: 1px dashed currentColor;
-    }
-  
-    .console-output__terminal-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-  
-      padding: 0.875rem 1rem;
-  
-      border-bottom: 1px dashed currentColor;
-  
-      font-size: 0.6875rem;
-      line-height: 1;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-  
-    .console-output__lines {
-      padding: 1rem;
-    }
-  
-    .console-output__lines p {
-      display: grid;
-      grid-template-columns: 2rem 1fr;
-      gap: 1rem;
-  
-      margin: 0;
-  
-      font-size: 0.8125rem;
-      line-height: 1.5;
-    }
-  
-    .console-output__lines p + p {
-      margin-top: 0.75rem;
-    }
-  
-    .console-output__lines span {
-      opacity: 0.65;
-    }
-  
-    @media (max-width: 48rem) {
-      .console-output__header {
-        gap: 1rem;
-      }
-  
-      .console-output__content {
-        grid-template-columns: 1fr;
-        align-content: end;
-        gap: 3rem;
-      }
-  
-      .console-output__intro {
-        padding-top: 2rem;
-      }
-  
-      .console-output__intro h2 {
-        max-width: 8ch;
-        font-size: clamp(3.75rem, 17vw, 6rem);
-      }
-    }
-  </style>
+  }
+</style>

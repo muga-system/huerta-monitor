@@ -3,106 +3,106 @@
 ---
 
 <footer class="site-footer">
-    <div class="site-footer__identity">
-      <p>Huerta Monitor</p>
-      <p>Proyecto IoT / V1 — Humedad del suelo</p>
-    </div>
-  
-    <nav class="site-footer__nav" aria-label="Navegación secundaria">
-      <a href="/sistema">Sistema</a>
-      <a href="/monitor">Monitor</a>
-    </nav>
-  
-    <p class="site-footer__year">2026</p>
-  </footer>
+  <div class="site-footer__identity">
+    <p>Huerta Monitor</p>
+    <p>Proyecto IoT / V1 — Humedad del suelo</p>
+  </div>
+
+  <nav class="site-footer__nav" aria-label="Navegación secundaria">
+    <a href="/sistema">Sistema</a>
+    <a href="/monitor">Monitor</a>
+  </nav>
+
+  <p class="site-footer__year">2026</p>
+</footer>
 
 <style>
-    .site-footer {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto auto;
-        align-items: end;
-        gap: 3rem;
-
-        min-height: 18rem;
-        margin-top: var(--page-gutter);
-        padding: 4rem 1.25rem 1.25rem;
-
-        border-top: 1px dashed rgb(247 247 243 / 18%);
-    }
-
-    .site-footer__identity p {
-        margin: 0;
-    }
-
-    .site-footer__identity p:first-child {
-        font-family: var(--font-display);
-        font-size: clamp(2.5rem, 5vw, 5rem);
-        font-weight: 400;
-        line-height: 0.9;
-        letter-spacing: -0.04em;
-    }
-
-    .site-footer__identity p:last-child {
-        margin-top: 1rem;
-
-        color: var(--color-text-muted);
-
-        font-size: 0.6875rem;
-        line-height: 1.4;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
-
-    .site-footer__nav {
-        display: flex;
-        gap: 1.5rem;
-    }
-
-    .site-footer__nav a,
-    .site-footer__year {
-        color: inherit;
-
-        font-size: 0.6875rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
-
-    .site-footer__nav a {
-        text-decoration: none;
-    }
-
-    .site-footer__nav a:hover {
-  opacity: 0.65;
-}
-
-.site-footer__nav a:focus-visible {
-  outline: 1px dashed rgb(247 247 243 / 30%);
-  outline-offset: 0.45rem;
-}
-
-.site-footer__year {
-  margin: 0;
-}
-
-@media (max-width: 48rem) {
   .site-footer {
-    grid-template-columns: 1fr;
-    align-items: start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: end;
     gap: 3rem;
 
-    min-height: 24rem;
-    padding: 3rem 1rem 1rem;
+    min-height: 18rem;
+    margin-top: var(--page-gutter);
+    padding: 4rem 1.25rem 1.25rem;
+
+    border-top: 1px dashed rgb(247 247 243 / 18%);
+  }
+
+  .site-footer__identity p {
+    margin: 0;
+  }
+
+  .site-footer__identity p:first-child {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .site-footer__identity p:last-child {
+    margin-top: 1rem;
+
+    color: var(--color-text-muted);
+
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .site-footer__nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .site-footer__nav a,
+  .site-footer__year {
+    color: inherit;
+
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .site-footer__nav a {
+    text-decoration: none;
+  }
+
+  .site-footer__nav a:hover {
+    opacity: 0.65;
+  }
+
+  .site-footer__nav a:focus-visible {
+    outline: 1px dashed rgb(247 247 243 / 30%);
+    outline-offset: 0.45rem;
   }
 
   .site-footer__year {
-    align-self: end;
+    margin: 0;
   }
-}
+
+  @media (max-width: 48rem) {
+    .site-footer {
+      grid-template-columns: 1fr;
+      align-items: start;
+      gap: 3rem;
+
+      min-height: 24rem;
+      padding: 3rem 1rem 1rem;
+    }
+
+    .site-footer__nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .site-footer__year {
+      align-self: end;
+    }
+  }
 </style>

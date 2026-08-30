@@ -3,113 +3,113 @@
 ---
 
 <section class="section-surface system-flow">
-    <div class="system-flow__intro">
-        <p>V1 / Circuito base</p>
+  <div class="system-flow__intro">
+    <p>V1 / Circuito base</p>
 
-        <h2>De la tierra a una lectura.</h2>
-    </div>
+    <h2>De la tierra a una lectura.</h2>
+  </div>
 
-    <ol class="system-flow__steps">
-        <li>
-            <span>01 /</span>
-            <p>Tierra</p>
-        </li>
+  <ol class="system-flow__steps">
+    <li>
+      <span>01 /</span>
+      <p>Tierra</p>
+    </li>
 
-        <li>
-            <span>02 /</span>
-            <p>Sensor capacitivo</p>
-        </li>
+    <li>
+      <span>02 /</span>
+      <p>Sensor capacitivo</p>
+    </li>
 
-        <li>
-            <span>03 /</span>
-            <p>ESP32</p>
-        </li>
+    <li>
+      <span>03 /</span>
+      <p>ESP32</p>
+    </li>
 
-        <li>
-            <span>04 /</span>
-            <p>Lectura por consola</p>
-        </li>
-    </ol>
+    <li>
+      <span>04 /</span>
+      <p>Lectura por consola</p>
+    </li>
+  </ol>
 </section>
 
 <style>
-    .system-flow {
-        background: var(--color-ochre-bg);
-        color: var(--color-ochre);
-    }
+  .system-flow {
+    background: var(--color-ochre-bg);
+    color: var(--color-ochre);
+  }
 
-    .system-flow__intro p {
-        margin: 0;
+  .system-flow__intro p {
+    margin: 0;
 
-        font-size: 0.6875rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-    }
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
 
+  .system-flow__intro h2 {
+    max-width: 10ch;
+    margin: 2rem 0 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+
+  .system-flow__steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    margin: 4rem 0 0;
+    padding: 0;
+
+    border-top: 1px dashed currentColor;
+    border-left: 1px dashed currentColor;
+
+    list-style: none;
+  }
+
+  .system-flow__steps li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 18rem;
+    padding: 1rem;
+
+    border-right: 1px dashed currentColor;
+    border-bottom: 1px dashed currentColor;
+  }
+
+  .system-flow__steps span {
+    font-size: 0.6875rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
+
+  .system-flow__steps p {
+    max-width: 12ch;
+    margin: 0;
+
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  @media (max-width: 48rem) {
     .system-flow__intro h2 {
-        max-width: 10ch;
-        margin: 2rem 0 0;
-
-        font-family: var(--font-display);
-        font-size: clamp(4rem, 8vw, 8rem);
-        font-weight: 400;
-        line-height: 0.9;
-        letter-spacing: -0.04em;
+      font-size: clamp(3.75rem, 17vw, 6rem);
     }
 
     .system-flow__steps {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-
-        margin: 4rem 0 0;
-        padding: 0;
-
-        border-top: 1px dashed currentColor;
-        border-left: 1px dashed currentColor;
-
-        list-style: none;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 3rem;
     }
 
     .system-flow__steps li {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        min-height: 18rem;
-        padding: 1rem;
-
-        border-right: 1px dashed currentColor;
-        border-bottom: 1px dashed currentColor;
+      min-height: 12rem;
     }
-
-    .system-flow__steps span {
-        font-size: 0.6875rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-    }
-
-    .system-flow__steps p {
-        max-width: 12ch;
-        margin: 0;
-
-        font-size: clamp(1.25rem, 2vw, 2rem);
-        line-height: 1;
-        letter-spacing: -0.03em;
-    }
-
-    @media (max-width: 48rem) {
-        .system-flow__intro h2 {
-            font-size: clamp(3.75rem, 17vw, 6rem);
-        }
-
-        .system-flow__steps {
-            grid-template-columns: 1fr 1fr;
-            margin-top: 3rem;
-        }
-
-        .system-flow__steps li {
-            min-height: 12rem;
-        }
-    }
+  }
 </style>

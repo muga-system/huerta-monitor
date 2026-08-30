@@ -4,94 +4,88 @@
 const { pathname } = Astro.url;
 
 const isActive = (path: string) => {
-    if (path === "/") {
-        return pathname === "/";
-    }
+  if (path === '/') {
+    return pathname === '/';
+  }
 
-    return pathname === path || pathname.startsWith(`${path}/`);
+  return pathname === path || pathname.startsWith(`${path}/`);
 };
 ---
 
 <header class="site-header">
-    <a
-        class="site-header__brand"
-        href="/"
-        aria-current={isActive("/") ? "page" : undefined}
-    >
-        Huerta Monitor
-    </a>
+  <a
+    class="site-header__brand"
+    href="/"
+    aria-current={isActive('/') ? 'page' : undefined}
+  >
+    Huerta Monitor
+  </a>
 
-    <nav class="site-header__nav" aria-label="Navegación principal">
-        <a
-            href="/sistema"
-            aria-current={isActive("/sistema") ? "page" : undefined}
-        >
-            Sistema
-        </a>
-        <a
-            href="/monitor"
-            aria-current={isActive("/monitor") ? "page" : undefined}
-        >
-            Monitor
-        </a>
-    </nav>
+  <nav class="site-header__nav" aria-label="Navegación principal">
+    <a href="/sistema" aria-current={isActive('/sistema') ? 'page' : undefined}>
+      Sistema
+    </a>
+    <a href="/monitor" aria-current={isActive('/monitor') ? 'page' : undefined}>
+      Monitor
+    </a>
+  </nav>
 </header>
 
 <style>
-    .site-header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        width: 100%;
-        height: var(--header-height);
-        padding: 0 1.25rem;
+    width: 100%;
+    height: var(--header-height);
+    padding: 0 1.25rem;
 
-        background: var(--color-base);
-    }
-    .site-header__brand,
-    .site-header__nav a {
-        color: inherit;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        line-height: 1;
-        letter-spacing: 0.08em;
-    }
+    background: var(--color-base);
+  }
+  .site-header__brand,
+  .site-header__nav a {
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
 
-    .site-header__nav {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-    }
+  .site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
 
-    .site-header__brand {
-        font-weight: 600;
-    }
+  .site-header__brand {
+    font-weight: 600;
+  }
 
-    .site-header__brand,
-    .site-header__nav a {
-        transition: opacity 150ms ease;
-    }
+  .site-header__brand,
+  .site-header__nav a {
+    transition: opacity 150ms ease;
+  }
 
-    .site-header__brand:hover,
-    .site-header__nav a:hover {
-        opacity: 0.65;
-    }
+  .site-header__brand:hover,
+  .site-header__nav a:hover {
+    opacity: 0.65;
+  }
 
-    .site-header [aria-current="page"] {
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 0.35em;
-    }
+  .site-header [aria-current='page'] {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+  }
 
-    .site-header a:focus-visible {
-        outline: 1px dashed rgb(247 247 243 / 30%);
-        outline-offset: 0.45rem;
-        border-radius: 1px;
-    }
+  .site-header a:focus-visible {
+    outline: 1px dashed rgb(247 247 243 / 30%);
+    outline-offset: 0.45rem;
+    border-radius: 1px;
+  }
 </style>
