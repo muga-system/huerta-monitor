@@ -1,12 +1,19 @@
 import type { MoistureReading } from '@/domain/moisture/moisture-reading';
 
+type UnavailableReading = Extract<MoistureReading, { kind: 'unavailable' }>;
+
 export type MoistureMonitor =
   | {
       kind: 'disconnected';
-      reading: Extract<MoistureReading, { kind: 'unavailable' }>;
+      reading: UnavailableReading;
     }
   | {
       kind: 'connected';
-      calibration: 'pending' | 'ready';
+      calibration: 'pending';
+      reading: UnavailableReading;
+    }
+  | {
+      kind: 'connected';
+      calibration: 'ready';
       reading: MoistureReading;
     };
