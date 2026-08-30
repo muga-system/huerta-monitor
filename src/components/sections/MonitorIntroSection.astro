@@ -1,0 +1,136 @@
+---
+// src/components/sections/MonitorIntroSection.astro
+---
+
+<section class="monitor-intro">
+    <div class="monitor-intro__header">
+      <p>Monitor / V1</p>
+      <p>Sin dispositivo conectado</p>
+    </div>
+  
+    <div class="monitor-intro__content">
+      <div class="monitor-intro__reading">
+        <p class="monitor-intro__value">--%</p>
+        <p class="monitor-intro__status">Sin lectura</p>
+      </div>
+  
+      <div class="monitor-intro__description">
+        <h1>La interfaz espera un dato real.</h1>
+  
+        <p>
+          Cuando el ESP32 pueda enviar una medición válida, este espacio mostrará
+          la humedad del suelo y su estado interpretado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .monitor-intro {
+      display: grid;
+      grid-template-rows: auto 1fr;
+  
+      min-height: calc(100svh - var(--header-height));
+      padding: 1.25rem;
+    }
+  
+    .monitor-intro__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  
+    .monitor-intro__header p {
+      margin: 0;
+  
+      font-size: 0.6875rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  
+    .monitor-intro__content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 1fr);
+      align-items: end;
+      gap: 4rem;
+    }
+  
+    .monitor-intro__value {
+      margin: 0;
+  
+      font-family: var(--font-display);
+      font-size: clamp(9rem, 24vw, 24rem);
+      font-weight: 400;
+      line-height: 0.7;
+      letter-spacing: -0.07em;
+    }
+  
+    .monitor-intro__status {
+      margin: 2rem 0 0;
+  
+      color: var(--color-text-muted);
+  
+      font-size: 0.75rem;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  
+    .monitor-intro__description {
+      padding-top: 1.25rem;
+  
+      border-top: 1px dashed rgb(247 247 243 / 30%);
+    }
+  
+    .monitor-intro__description h1 {
+      max-width: 9ch;
+      margin: 0;
+  
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+  
+    .monitor-intro__description p {
+      max-width: 30rem;
+      margin: 2rem 0 0;
+  
+      color: var(--color-text-muted);
+  
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+  
+    @media (max-width: 48rem) {
+      .monitor-intro {
+        padding: 1rem;
+      }
+  
+      .monitor-intro__header {
+        gap: 1rem;
+      }
+  
+      .monitor-intro__content {
+        grid-template-columns: 1fr;
+        align-content: end;
+        gap: 3rem;
+      }
+  
+      .monitor-intro__reading {
+        padding-top: 2rem;
+      }
+  
+      .monitor-intro__value {
+        font-size: clamp(8rem, 40vw, 13rem);
+        line-height: 0.82;
+      }
+  
+      .monitor-intro__description h1 {
+        max-width: 8ch;
+        font-size: clamp(3.5rem, 14vw, 5.5rem);
+      }
+    }
+  </style>
