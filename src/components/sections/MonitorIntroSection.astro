@@ -6,9 +6,10 @@ import type { MoistureStatus } from '@/domain/moisture/moisture-reading';
 
 interface Props {
   monitor: MoistureMonitor;
+  isDemo?: boolean;
 }
 
-const { monitor } = Astro.props;
+const { monitor, isDemo = false } = Astro.props;
 
 const { reading } = monitor;
 
@@ -28,18 +29,22 @@ const deviceStatus =
   monitor.kind === 'connected'
     ? 'Dispositivo conectado'
     : 'Sin dispositivo conectado';
+
+const headerStatus = isDemo ? 'Demo / Sin hardware' : deviceStatus;
+
+const readingStatus = isDemo ? `${status} / Demo` : status;
 ---
 
 <section class="monitor-intro">
   <div class="monitor-intro__header">
     <p>Monitor / V1</p>
-    <p>{deviceStatus}</p>
+    <p>{headerStatus}</p>
   </div>
 
   <div class="monitor-intro__content">
     <div class="monitor-intro__reading">
       <p class="monitor-intro__value">{value}</p>
-      <p class="monitor-intro__status">{status}</p>
+      <p class="monitor-intro__status">{readingStatus}</p>
     </div>
 
     <div class="monitor-intro__description">

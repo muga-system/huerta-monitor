@@ -1,0 +1,38 @@
+---
+// src\pages\dev\monitor\[fixture].astro
+
+import {
+  DEV_MONITOR_FIXTURE_NAMES,
+  getDevMonitorFixture,
+  type DevMonitorFixtureName,
+} from '@/adapters/moisture/dev-monitor-fixtures';
+import MonitorIntroSection from '@/components/sections/MonitorIntroSection.astro';
+import MonitorStatusSection from '@/components/sections/MonitorStatusSection.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  if (!import.meta.env.DEV) {
+    return [];
+  }
+
+  return DEV_MONITOR_FIXTURE_NAMES.map((fixture) => ({
+    params: { fixture },
+    props: { fixture },
+  }));
+}
+
+const { fixture } = Astro.props as {
+  fixture: DevMonitorFixtureName;
+};
+
+const monitor = getDevMonitorFixture(fixture);
+
+if (!monitor) {
+  throw new Error(`Fixture desconocido: ${fixture}`);
+}
+---
+
+<BaseLayout title={`Monitor Demo | ${fixture}`}>
+  <MonitorIntroSection monitor={monitor} isDemo={true} />
+  <MonitorStatusSection monitor={monitor} />
+</BaseLayout>
