@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import type { MoistureCalibration } from './moisture-calibration';
 import { createMoistureReading } from './create-moisture-reading';
+import type { MoistureSample } from './moisture-sample';
 import type { MoistureThresholds } from './moisture-thresholds';
 
 describe('createMoistureReading', () => {
@@ -17,11 +18,15 @@ describe('createMoistureReading', () => {
 
   const measuredAt = '2026-08-31T13:00:00-03:00';
 
+  const createSample = (rawValue: number): MoistureSample => ({
+    rawValue,
+    measuredAt,
+  });
+
   it('crea una lectura seca', () => {
     expect(
       createMoistureReading({
-        rawValue: 2800,
-        measuredAt,
+        sample: createSample(2800),
         calibration,
         thresholds,
       }),
@@ -36,8 +41,7 @@ describe('createMoistureReading', () => {
   it('crea una lectura óptima', () => {
     expect(
       createMoistureReading({
-        rawValue: 2000,
-        measuredAt,
+        sample: createSample(2000),
         calibration,
         thresholds,
       }),
@@ -52,8 +56,7 @@ describe('createMoistureReading', () => {
   it('crea una lectura húmeda', () => {
     expect(
       createMoistureReading({
-        rawValue: 1200,
-        measuredAt,
+        sample: createSample(1200),
         calibration,
         thresholds,
       }),
@@ -68,8 +71,7 @@ describe('createMoistureReading', () => {
   it('devuelve una lectura no disponible si la calibración es inválida', () => {
     expect(
       createMoistureReading({
-        rawValue: 2000,
-        measuredAt,
+        sample: createSample(2000),
         calibration: {
           dryRaw: 2000,
           wetRaw: 2000,
@@ -84,8 +86,7 @@ describe('createMoistureReading', () => {
   it('devuelve una lectura no disponible si los umbrales son inválidos', () => {
     expect(
       createMoistureReading({
-        rawValue: 2000,
-        measuredAt,
+        sample: createSample(2000),
         calibration,
         thresholds: {
           dryBelow: 80,
@@ -100,8 +101,10 @@ describe('createMoistureReading', () => {
   it('devuelve una lectura no disponible si la fecha es inválida', () => {
     expect(
       createMoistureReading({
-        rawValue: 2000,
-        measuredAt: 'fecha-invalida',
+        sample: {
+          rawValue: 2000,
+          measuredAt: 'fecha-invalida',
+        },
         calibration,
         thresholds,
       }),

@@ -3,20 +3,20 @@ import { calibrateMoisturePercentage } from './moisture-calibration';
 import type { MoistureReading } from './moisture-reading';
 import type { MoistureThresholds } from './moisture-thresholds';
 import { classifyMoisture } from './moisture-thresholds';
+import type { MoistureSample } from './moisture-sample';
 
 export interface CreateMoistureReadingInput {
-  rawValue: number;
-  measuredAt: string;
+  sample: MoistureSample;
   calibration: MoistureCalibration;
   thresholds: MoistureThresholds;
 }
 
 export const createMoistureReading = ({
-  rawValue,
-  measuredAt,
+  sample,
   calibration,
   thresholds,
 }: CreateMoistureReadingInput): MoistureReading => {
+  const { rawValue, measuredAt } = sample;
   const percentage = calibrateMoisturePercentage(rawValue, calibration);
 
   if (percentage === null) {
