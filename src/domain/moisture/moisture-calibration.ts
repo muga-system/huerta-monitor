@@ -1,5 +1,3 @@
-// src/domain/moisture/moisture-calibration.ts
-
 export interface MoistureCalibration {
   dryRaw: number;
   wetRaw: number;
@@ -11,7 +9,12 @@ export const calibrateMoisturePercentage = (
 ): number | null => {
   const { dryRaw, wetRaw } = calibration;
 
-  if (dryRaw === wetRaw) {
+  const hasValidValues =
+    Number.isFinite(rawValue) &&
+    Number.isFinite(dryRaw) &&
+    Number.isFinite(wetRaw);
+
+  if (!hasValidValues || dryRaw === wetRaw) {
     return null;
   }
 
