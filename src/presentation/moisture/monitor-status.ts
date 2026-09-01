@@ -5,6 +5,7 @@ import type { MoistureMonitor } from '@/domain/moisture/moisture-monitor';
 export interface MonitorStatusViewModel {
   connection: string;
   calibration: string;
+  rawValue: string;
   lastReading: string;
 }
 
@@ -25,6 +26,9 @@ export const toMonitorStatusViewModel = (
       monitor.reading.kind === 'available'
         ? formatMeasuredAt(monitor.reading.measuredAt)
         : '—',
+
+    rawValue:
+      monitor.lastSample !== null ? String(monitor.lastSample.rawValue) : '—',
   };
 };
 
