@@ -8,6 +8,7 @@ describe('toMonitorStatusViewModel', () => {
   it('representa un monitor desconectado', () => {
     const monitor: MoistureMonitor = {
       kind: 'disconnected',
+      lastSample: null,
       reading: {
         kind: 'unavailable',
       },
@@ -25,6 +26,7 @@ describe('toMonitorStatusViewModel', () => {
   it('representa un monitor conectado pendiente de calibración', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
+      lastSample: null,
       calibration: 'pending',
       reading: {
         kind: 'unavailable',
@@ -43,6 +45,7 @@ describe('toMonitorStatusViewModel', () => {
   it('representa un monitor conectado y calibrado', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
+      lastSample: null,
       calibration: 'ready',
       reading: {
         kind: 'unavailable',
@@ -61,6 +64,7 @@ describe('toMonitorStatusViewModel', () => {
   it('muestra una fecha cuando existe una lectura válida', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
+      lastSample: null,
       calibration: 'ready',
       reading: {
         kind: 'available',
@@ -80,6 +84,7 @@ describe('toMonitorStatusViewModel', () => {
   it('protege la interfaz frente a una fecha inválida', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
+      lastSample: null,
       calibration: 'ready',
       reading: {
         kind: 'available',

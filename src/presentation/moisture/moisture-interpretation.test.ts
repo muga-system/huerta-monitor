@@ -10,6 +10,7 @@ describe('toMoistureInterpretationViewModel', () => {
   it('representa un monitor sin lectura como estado neutral', () => {
     const monitor: MoistureMonitor = {
       kind: 'disconnected',
+      lastSample: null,
       reading: {
         kind: 'unavailable',
       },
@@ -30,6 +31,7 @@ describe('toMoistureInterpretationViewModel', () => {
   it('representa una lectura seca', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
+      lastSample: null,
       calibration: 'ready',
       reading: {
         kind: 'available',
@@ -49,6 +51,7 @@ describe('toMoistureInterpretationViewModel', () => {
   it('representa una lectura óptima', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
+      lastSample: null,
       calibration: 'ready',
       reading: {
         kind: 'available',
@@ -68,6 +71,7 @@ describe('toMoistureInterpretationViewModel', () => {
   it('representa una lectura húmeda', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
+      lastSample: null,
       calibration: 'ready',
       reading: {
         kind: 'available',

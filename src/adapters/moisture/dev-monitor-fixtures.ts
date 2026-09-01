@@ -14,6 +14,7 @@ export type DevMonitorFixtureName = (typeof DEV_MONITOR_FIXTURE_NAMES)[number];
 const fixtures = {
   disconnected: {
     kind: 'disconnected',
+    lastSample: null,
     reading: {
       kind: 'unavailable',
     },
@@ -22,6 +23,10 @@ const fixtures = {
   'connected-pending': {
     kind: 'connected',
     calibration: 'pending',
+    lastSample: {
+      rawValue: 2417,
+      measuredAt: '2026-08-30T10:15:00-03:00',
+    },
     reading: {
       kind: 'unavailable',
     },
@@ -30,6 +35,7 @@ const fixtures = {
   'connected-ready': {
     kind: 'connected',
     calibration: 'ready',
+    lastSample: null,
     reading: {
       kind: 'unavailable',
     },
@@ -38,6 +44,10 @@ const fixtures = {
   'dry-reading': {
     kind: 'connected',
     calibration: 'ready',
+    lastSample: {
+      rawValue: 2800,
+      measuredAt: '2026-08-30T10:30:00-03:00',
+    },
     reading: {
       kind: 'available',
       percentage: 42,
@@ -49,6 +59,10 @@ const fixtures = {
   'optimal-reading': {
     kind: 'connected',
     calibration: 'ready',
+    lastSample: {
+      rawValue: 2000,
+      measuredAt: '2026-08-30T10:45:00-03:00',
+    },
     reading: {
       kind: 'available',
       percentage: 63,
@@ -60,6 +74,10 @@ const fixtures = {
   'wet-reading': {
     kind: 'connected',
     calibration: 'ready',
+    lastSample: {
+      rawValue: 1200,
+      measuredAt: '2026-08-30T11:00:00-03:00',
+    },
     reading: {
       kind: 'available',
       percentage: 84,
