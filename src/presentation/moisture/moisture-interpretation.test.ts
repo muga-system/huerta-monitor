@@ -1,5 +1,3 @@
-// src\presentation\moisture\moisture-interpretation.test.ts
-
 import { describe, expect, it } from 'vitest';
 
 import type { MoistureMonitor } from '@/domain/moisture/moisture-monitor';
@@ -31,8 +29,11 @@ describe('toMoistureInterpretationViewModel', () => {
   it('representa una lectura seca', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
-      lastSample: null,
       calibration: 'ready',
+      lastSample: {
+        rawValue: 2160,
+        measuredAt: '2026-08-30T10:30:00-03:00',
+      },
       reading: {
         kind: 'available',
         percentage: 42,
@@ -51,8 +52,11 @@ describe('toMoistureInterpretationViewModel', () => {
   it('representa una lectura óptima', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
-      lastSample: null,
       calibration: 'ready',
+      lastSample: {
+        rawValue: 1740,
+        measuredAt: '2026-08-30T10:45:00-03:00',
+      },
       reading: {
         kind: 'available',
         percentage: 63,
@@ -71,8 +75,11 @@ describe('toMoistureInterpretationViewModel', () => {
   it('representa una lectura húmeda', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
-      lastSample: null,
       calibration: 'ready',
+      lastSample: {
+        rawValue: 1320,
+        measuredAt: '2026-08-30T11:00:00-03:00',
+      },
       reading: {
         kind: 'available',
         percentage: 84,

@@ -91,7 +91,10 @@ describe('toMonitorStatusViewModel', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
       calibration: 'ready',
-      lastSample: null,
+      lastSample: {
+        rawValue: 2160,
+        measuredAt: '2026-08-30T10:30:00-03:00',
+      },
       reading: {
         kind: 'available',
         percentage: 42,
@@ -111,7 +114,10 @@ describe('toMonitorStatusViewModel', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
       calibration: 'ready',
-      lastSample: null,
+      lastSample: {
+        rawValue: 2160,
+        measuredAt: 'fecha-invalida',
+      },
       reading: {
         kind: 'available',
         percentage: 42,
@@ -122,6 +128,7 @@ describe('toMonitorStatusViewModel', () => {
 
     const result = toMonitorStatusViewModel(monitor);
 
+    expect(result.lastSampleAt).toBe('—');
     expect(result.lastReading).toBe('—');
   });
 });
