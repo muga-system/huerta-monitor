@@ -20,6 +20,7 @@ describe('toMonitorStatusViewModel', () => {
       connection: 'Desconectado',
       calibration: '—',
       rawValue: '—',
+      lastSampleAt: '—',
       lastReading: '—',
     });
   });
@@ -40,6 +41,7 @@ describe('toMonitorStatusViewModel', () => {
       connection: 'Conectado',
       calibration: 'Pendiente',
       rawValue: '—',
+      lastSampleAt: '—',
       lastReading: '—',
     });
   });
@@ -60,11 +62,12 @@ describe('toMonitorStatusViewModel', () => {
       connection: 'Conectado',
       calibration: 'Lista',
       rawValue: '—',
+      lastSampleAt: '—',
       lastReading: '—',
     });
   });
 
-  it('muestra el valor crudo de la última muestra', () => {
+  it('muestra los datos de la última muestra', () => {
     const monitor: MoistureMonitor = {
       kind: 'connected',
       calibration: 'pending',
@@ -80,6 +83,8 @@ describe('toMonitorStatusViewModel', () => {
     const result = toMonitorStatusViewModel(monitor);
 
     expect(result.rawValue).toBe('2417');
+    expect(result.lastSampleAt).not.toBe('—');
+    expect(result.lastReading).toBe('—');
   });
 
   it('muestra una fecha cuando existe una lectura válida', () => {

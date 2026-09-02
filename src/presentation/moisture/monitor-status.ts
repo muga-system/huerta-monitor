@@ -6,6 +6,7 @@ export interface MonitorStatusViewModel {
   connection: string;
   calibration: string;
   rawValue: string;
+  lastSampleAt: string;
   lastReading: string;
 }
 
@@ -22,13 +23,18 @@ export const toMonitorStatusViewModel = (
           : 'Pendiente'
         : '—',
 
+    rawValue:
+      monitor.lastSample !== null ? String(monitor.lastSample.rawValue) : '—',
+
+    lastSampleAt:
+      monitor.lastSample !== null
+        ? formatMeasuredAt(monitor.lastSample.measuredAt)
+        : '—',
+
     lastReading:
       monitor.reading.kind === 'available'
         ? formatMeasuredAt(monitor.reading.measuredAt)
         : '—',
-
-    rawValue:
-      monitor.lastSample !== null ? String(monitor.lastSample.rawValue) : '—',
   };
 };
 
