@@ -18,6 +18,8 @@ describe('toMonitorStatusViewModel', () => {
 
     expect(result).toEqual({
       connection: 'Desconectado',
+      sampleState: 'disconnected',
+      sampleStatus: 'Sin señal',
       calibration: '—',
       rawValue: '—',
       lastSampleAt: '—',
@@ -39,6 +41,8 @@ describe('toMonitorStatusViewModel', () => {
 
     expect(result).toEqual({
       connection: 'Conectado',
+      sampleState: 'waiting',
+      sampleStatus: 'Esperando muestra',
       calibration: 'Pendiente',
       rawValue: '—',
       lastSampleAt: '—',
@@ -60,6 +64,8 @@ describe('toMonitorStatusViewModel', () => {
 
     expect(result).toEqual({
       connection: 'Conectado',
+      sampleState: 'waiting',
+      sampleStatus: 'Esperando muestra',
       calibration: 'Lista',
       rawValue: '—',
       lastSampleAt: '—',
@@ -85,6 +91,8 @@ describe('toMonitorStatusViewModel', () => {
     expect(result.rawValue).toBe('2417');
     expect(result.lastSampleAt).not.toBe('—');
     expect(result.lastReading).toBe('—');
+    expect(result.sampleState).toBe('received');
+    expect(result.sampleStatus).toBe('Muestra recibida');
   });
 
   it('muestra una fecha cuando existe una lectura válida', () => {

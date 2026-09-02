@@ -2,8 +2,12 @@
 
 import type { MoistureMonitor } from '@/domain/moisture/moisture-monitor';
 
+export type MonitorSampleState = 'disconnected' | 'waiting' | 'received';
+
 export interface MonitorStatusViewModel {
   connection: string;
+  sampleState: MonitorSampleState;
+  sampleStatus: string;
   calibration: string;
   rawValue: string;
   lastSampleAt: string;
@@ -13,24 +17,36 @@ export interface MonitorStatusViewModel {
 export const toMonitorStatusViewModel = (
   monitor: MoistureMonitor,
 ): MonitorStatusViewModel => {
-  return {
-    connection: monitor.kind === 'connected' ? 'Conectado' : 'Desconectado',
+  const sampleState: MonitorSampleState =
+    monitor.kind === 'disconnected'
+      ? 'disconnected'
+      : monitor.lastSample === null
+        ? 'waiting'
+        : 'received';
 
+  const sampleStatus =
+    sampleState === 'disconnected'
+      ? 'Sin señal'
+      : sampleState === 'waiting'
+        ? 'Esperando muestra'
+        : 'Muestra recibida';
+
+  return {
+    sampleState,
+    sampleStatus,
+    connection: monitor.kind === 'connected' ? 'Conectado' : 'Desconectado',
     calibration:
       monitor.kind === 'connected'
         ? monitor.calibration === 'ready'
           ? 'Lista'
           : 'Pendiente'
         : '—',
-
     rawValue:
       monitor.lastSample !== null ? String(monitor.lastSample.rawValue) : '—',
-
     lastSampleAt:
       monitor.lastSample !== null
         ? formatMeasuredAt(monitor.lastSample.measuredAt)
         : '—',
-
     lastReading:
       monitor.reading.kind === 'available'
         ? formatMeasuredAt(monitor.reading.measuredAt)
