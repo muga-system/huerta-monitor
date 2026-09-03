@@ -88,4 +88,24 @@ const isActive = (path: string) => {
     outline-offset: 0.45rem;
     border-radius: 1px;
   }
+
+  @media (max-width: 30rem) {
+    .site-header {
+      padding: 0 1rem;
+    }
+
+    .site-header__nav {
+      gap: 1rem;
+    }
+
+    .site-header__brand,
+    .site-header__nav a {
+      font-size: 0.6875rem;
+      letter-spacing: 0.06em;
+    }
+
+    .site-header__brand {
+      white-space: nowrap;
+    }
+  }
 </style>
