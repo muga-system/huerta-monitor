@@ -26,6 +26,31 @@ body {
   font-family: var(--font-sans);
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+
+  padding: 0.75rem 1rem;
+
+  background: var(--color-text);
+  color: var(--color-base);
+
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+
+  transform: translateY(calc(-100% - 1rem));
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .section-surface {
   display: flex;
   flex-direction: column;
