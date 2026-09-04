@@ -13,7 +13,7 @@ const status = toMonitorStatusViewModel(monitor);
 
 <section class="section-surface monitor-status">
   <div class="monitor-status__header">
-    <p>Estado / Sistema</p>
+    <h2>Estado / Sistema</h2>
     <p>Monitor técnico</p>
   </div>
 
@@ -56,10 +56,15 @@ const status = toMonitorStatusViewModel(monitor);
     color: var(--color-text);
   }
 
-  .monitor-status__header {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+  .monitor-status__header h2,
+  .monitor-status__header p {
+    margin: 0;
+
+    font-size: 0.6875rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .monitor-status__header p {
